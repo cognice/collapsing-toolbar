@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/primary">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:background="@android:color/transparent"
+        android:layout_height="170dp"
+        >
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
+            android:fitsSystemWindows="true"
+            >
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Username"
+                        android:imeOptions="actionDone"
+                        android:id="@+id/nickname"
+                        android:layout_marginTop="45dp"
+                        android:layout_marginBottom="0dp"
+                        android:gravity="bottom"
+                        android:layout_marginStart="165dp"
+                        android:layout_marginEnd="40dp"
+                        android:textSize="26sp"
+                        android:inputType="textVisiblePassword" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="phone"
+                        android:imeOptions="actionDone"
+                        android:id="@+id/phone"
+                        android:layout_marginTop="-15dp"
+                        android:textSize="18sp"
+                        android:layout_marginStart="165dp"
+                        android:layout_marginEnd="70dp"
+                        android:textColor="@color/secondary_text"
+                        android:hint="Phone number" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="LinearLayoutManager"
+        tools:context="us.cognice.android.collapsing.toolbar.MainActivity"
+        tools:listitem="@layout/list_item"
+        android:background="@android:color/white"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:paddingTop="28dp"
+        android:clipToPadding="true">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:background="@color/primary"
+        app:layout_anchor="@id/app_bar_layout"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark"
+        app:title=""
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        app:contentInsetStart="0dp"
+        app:layout_anchorGravity="bottom"
+        android:layout_height="56dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginStart="0dp">
+
+            <TextView
+                android:id="@+id/main.textview.title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="bottom|center_horizontal"
+                android:text="ITEMS"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:layout_marginBottom="15dp" />
+
+        </LinearLayout>
+    </android.support.v7.widget.Toolbar>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ava"
+        android:src="@drawable/icon_user_default"
+        app:border_color="@android:color/white"
+        app:border_width="1dp"
+        app:layout_behavior="us.cognice.android.collapsing.toolbar.AvatarBehavior"
+        app:startXPosition="10dp"
+        app:startYPosition="20dp"
+        app:endXPosition="10dp"
+        app:endYPosition="12dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_weight="1" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|left"
+        app:srcCompat="@drawable/ic_add_white_24dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        app:layout_anchor="@+id/list"
+        app:layout_anchorGravity="top|right"
+        android:layout_marginEnd="20dp" />
+
+</android.support.design.widget.CoordinatorLayout>
